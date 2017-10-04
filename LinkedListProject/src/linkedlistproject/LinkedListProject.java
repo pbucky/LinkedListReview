@@ -10,7 +10,7 @@ public class LinkedListProject {
         head = a;
     }
     public void addFirst(String value) {
-        
+        // adding a change
     }
     public int getLength() {
         if (head == null) {
