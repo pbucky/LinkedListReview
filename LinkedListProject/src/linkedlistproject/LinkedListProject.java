@@ -5,7 +5,7 @@
 package linkedlistproject;
 
 public class LinkedListProject {
-    Node head;
+    public Node head;
     public LinkedListProject(Node a) {
         head = a;
     }
@@ -68,18 +68,18 @@ public class LinkedListProject {
         Node h = head;
         //getlength
         if ( i == 0) {
-            addFirst(v.identity);
+            addFirst(v.value);
             return;
         }
         else if (i >= getLength()) {
-            addLast(v.identity);
+            addLast(v.value);
             return;
         }
         else {
           n = getNode(i - 1);   
         }
 
-            n.next = new Node(v.identity, n.next);
+            n.next = new Node(v.value, n.next);
             n.next.previous = n;
             n.next.next.previous = n.next;
         
@@ -93,7 +93,7 @@ public class LinkedListProject {
             Node n = head;
             int x = 0;
             while (n != null) {
-                if (n.identity.equals(target)) {
+                if (n.value.equals(target)) {
                     insertAt(x, value);
                     return;
                 }
@@ -172,4 +172,3 @@ public class LinkedListProject {
           }
       }    
     
-}

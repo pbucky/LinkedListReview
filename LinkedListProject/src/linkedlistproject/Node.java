@@ -5,5 +5,13 @@
 package linkedlistproject;
 
 public class Node {
-    
+    public Node next, previous;
+    public String value;
+    public Node(String a) {
+        value = a;
+    }
+    public Node(String a, Node n) {
+        value = a;
+        next = n;
+    }
 }
