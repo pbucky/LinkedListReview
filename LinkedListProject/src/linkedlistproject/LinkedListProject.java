@@ -63,7 +63,7 @@ public class LinkedListProject {
             n.next.next.previous = n.next;
         
     }
-       public void insertAt(int i, Node v) {
+    public void insertAt(int i, Node v) {
         Node n = null;
         Node h = head;
         //getlength
@@ -84,8 +84,7 @@ public class LinkedListProject {
             n.next.next.previous = n.next;
         
     }
-    
-      public void insertBefore(String target, String value) {
+    public void insertBefore(String target, String value) {
         if (!(contains(target))) {
             addLast(value);
         }
@@ -101,9 +100,65 @@ public class LinkedListProject {
                 n = n.next;
                 
             }
+        }    
+    }
+    public void addLast(String value) {
+        if (head == null || getLength() == 0) {
+            addFirst(value);
+            return;
+        }
+        Node temp = head;
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+        temp.next = new Node(value);
+        temp.next.previous = temp;
+    }
+    public String getLast() {
+        if (head == null || getLength() == 0) {
+            return "There is nothing in the list.";
+        }
+        Node temp = head;
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+        return temp.value;
+    }
+    public Boolean contains(String value) {
+        if (head == null || getLength() == 0) {
+            return false;
+        }
+        Node temp = head;
+        while (temp.next != null) {
+            if (temp.value == value) {
+                return true;
+            }
+            temp = temp.next;
+        }
+        return false;
+    }
+    public void listAllNodes() {
+        if (head == null) {
+            System.out.println("The list is empty");
+            return;
+        }
+        Node temp = head;
+        while (temp != null) {
+            System.out.print("Node: " + temp.value + " has ");
+            if (temp.next != null && temp.previous != null) {
+                System.out.println("a next Node of: " + temp.next.value + ", and a previous Node of: " + temp.previous.value);
+            } else if (temp.next != null) {
+                System.out.println("a next Node of: " + temp.next.value + ", and has no previous Node.");
+            } else if (temp.previous != null) {
+                System.out.println("no next Node, and a previous Node of: " + temp.previous.value);
+            } else {
+                System.out.println("no next Node, or previous Node.");
+            }
+            temp = temp.next;
+>>>>>>> branchy
         }
     }
-      public Node remove(int i) {
+    public Node remove(int i) {
           Node n= null;
           if (i == 0) {
               head = head.next;
@@ -126,7 +181,7 @@ public class LinkedListProject {
           }
           return n;
       }
-      public void swap(int i, int y) {
+    public void swap(int i, int y) {
           Node a = getNode(i);
           Node b = getNode(y);
           if (i > y) {
@@ -149,26 +204,25 @@ public class LinkedListProject {
           }
          
       }
-      public void sort()
-      {
-          boolean unsorted = true;
+    public void sort() {
+        boolean unsorted = true;
           
-          while (unsorted) {
-              boolean checker = true;
-              for (int i = 0; i < getLength() - 1; i++) {
-                  if (((getNode(i).compareTo(getNode(i + 1)))) > 0) {
-                      checker = false;
-                  }
-              }
-              if (checker) {
-                  unsorted = false;
-              }
-              for (int i = 0; i < getLength() - 1; i++) {
-                  if (((getNode(i).compareTo(getNode(i + 1)))) > 0) {
-                      swap(i,i+1);
+        while (unsorted) {
+            boolean checker = true;
+            for (int i = 0; i < getLength() - 1; i++) {
+                if (((getNode(i).compareTo(getNode(i + 1)))) > 0) {
+                    checker = false;
                 }
-              }
-              
-          }
-      }    
+            }
+            if (checker) {
+                unsorted = false;
+            }
+            for (int i = 0; i < getLength() - 1; i++) {
+                if (((getNode(i).compareTo(getNode(i + 1)))) > 0) {
+                    swap(i,i+1);
+                }
+            }  
+        }
+    }   
+}
     
