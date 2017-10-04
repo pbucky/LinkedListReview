@@ -61,6 +61,7 @@ public class LinkedListProject {
             n.next = new Node(v, n.next);
             n.next.previous = n;
             n.next.next.previous = n.next;
+        
     }
     public void insertAt(int i, Node v) {
         Node n = null;
