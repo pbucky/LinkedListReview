@@ -9,6 +9,10 @@ public class LinkedListProject {
     public LinkedListProject(Node a) {
         head = a;
     }
+    
+    public void hello() {
+        
+    }
     public void addFirst(String value) {
         if (head == null) {
             head = new Node(value);
